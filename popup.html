@@ -4,7 +4,7 @@
  "browser_action" field in manifest.json contains the "default_popup" key with
  value "popup.html".
  -->
-<html>
+<html ng-app="app">
 
 <head>
 	<title>Getting Started Extension's Popup</title>
@@ -34,26 +34,34 @@
       -
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
+	<script src="jquery.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="angular.js"></script>
 	<script src="popup.js"></script>
 	<script src="dom.js"></script>
 </head>
 
-<body>
+<body ng-controller="ctrl">
 	<div id="status"></div>
 	<div id="filter">
 		<label class="checkbox-inline">
-  			<input name="docType" type="checkbox" id="inlineCheckbox1" value="pdf">pdf
+  			<input ng-change="checkBoxChange()" name="docType" type="checkbox" id="inlineCheckbox1" ng-value="pdf"  ng-model="selectedType.pdf">pdf
 		</label>
 		<label class="checkbox-inline">
-  			<input name="docType" type="checkbox" id="inlineCheckbox2" value="docx">docx
+  			<input ng-change="checkBoxChange()" name="docType" type="checkbox" id="inlineCheckbox2" ng-value="docx"  ng-model="selectedType.docx">docx
 		</label>
 		<label class="checkbox-inline">
-  			<input name="docType" type="checkbox" id="inlineCheckbox3" value="ppt">ppt
+  			<input ng-change="checkBoxChange()" name="docType" type="checkbox" id="inlineCheckbox3" ng-value="ppt"  ng-model="selectedType.ppt">ppt
 		</label>
 	</div>
-	<div id="result"></div>
-	<script src="jquery.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<div id="result">
+		<!--ng-show="selectedType[item.type]"-->
+		<div ng-repeat="item in results track by $index" ng-show="selectedType[item.type]">
+			{{item.text}} &nbsp;
+            <a ng-href="{{item.url}}" target="_blank">{{item.text}}</a>
+		</div>
+	</div>
+
 </body>
 
 </html>

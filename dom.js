@@ -1,5 +1,6 @@
 console.log("in dom.js")
-function getLinks() {
+function getLinks(r, s) {
+  console.log(r, s);
   var links = document.querySelectorAll("a");
   var results = [];
   var seenLinks = {};
@@ -14,10 +15,23 @@ function getLinks() {
   //   results.push({ href: link, text: text });
   // }
   for (var i = 0; i < links.length; i++) {
-    if (links[i].href.indexOf(".pdf") !== -1) {
-      var outer = links[i].outerHTML;
 
-      results.push(outer);
+    if (links[i].href.indexOf(".pdf") !== -1 || links[i].href.indexOf(".docx") !== -1 || links[i].href.indexOf(".ppt") !== -1) {
+      var type = "";
+      if (links[i].href.indexOf(".pdf") !== -1) {
+        type = "pdf";
+      } else if (links[i].href.indexOf(".docx") !== -1) {
+        type = "docx";
+      } else if (links[i].href.indexOf(".ppt") !== -1) {
+        type = "ppt";
+      }
+      var obj = {};
+      obj.url = links[i].href;
+      obj.type = type;
+      obj.text = links[i].innerHTML;
+      // var outer = links[i].href;
+
+      results.push(obj);
     }
 
   }
@@ -25,5 +39,7 @@ function getLinks() {
 };
 
 chrome.extension.onRequest.addListener(function (request, sender, sendResponse) {
-  sendResponse(getLinks());
+  console.log(sender);
+  console.log(request);
+  sendResponse(getLinks(request, sender));
 });
