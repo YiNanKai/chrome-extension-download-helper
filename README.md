@@ -4,7 +4,7 @@
 This is a chrome extension to help you download the document in the current page, including PDF, DOCX, PPT for now
 
 ## Install
-- Download the zip and unzip it
+- Download the zip and uncompress it
 - Open extension page in Chrome
 - Drag the directory to extension page
 
