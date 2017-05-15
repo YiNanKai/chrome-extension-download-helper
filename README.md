@@ -2,7 +2,10 @@
 # Download Helper
 ## About
 This is a chrome extension to help you download the document in the current page, including PDF, DOCX, PPT for now
+## How it works
+Access the current page DOM, and find all the `a` elements which its `href` attribute contains specific file type. Then add these link to the dialog.
 
+Dialog use Angular framework.
 ## Install
 - Download the zip and uncompress it
 - Open extension page in Chrome
