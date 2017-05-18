@@ -55,10 +55,12 @@
 		</label>
 	</div>
 	<div id="result">
-		<!--ng-show="selectedType[item.type]"-->
 		<div ng-repeat="item in results track by $index" ng-show="selectedType[item.type]">
 			{{item.text}} &nbsp;
-            <a ng-href="{{item.url}}" target="_blank">{{item.text}}</a>
+            <a ng-href="{{item.url}}" target="_blank">Download</a>
+		</div>
+		<div ng-if = "results.length == 0">
+			<i>Not Found</i>
 		</div>
 	</div>
 

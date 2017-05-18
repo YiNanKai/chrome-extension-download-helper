@@ -3,24 +3,12 @@
   "name": "Download Helper",
   "description": "This extension help you download document in the current page including PDF and DOC and PPT",
   "version": "1.0",
-  
-  // "content_scripts": [
-  //   {
-  //     "js": [
-  //       "jquery.js"
-  //     ]
-  //   }
-  // ],
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
   "permissions": [
     "activeTab",
-    // "experimental",
-    "tabs",
-    "http://*/*",
-    "https://*/*",
-    "https://ajax.googleapis.com/"
+    "tabs"
   ]
 }
