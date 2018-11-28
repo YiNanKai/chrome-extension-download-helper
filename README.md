@@ -1,4 +1,4 @@
-![Download Helper icon](http://download.easyicon.net/png/1185849/256/)
+![Download Helper icon](https://raw.githubusercontent.com/YiNanKai/chrome-extension-download-helper/master/icon.png)
 # Download Helper
 ## About
 This is a chrome extension to help you download the document in the current page, including PDF, DOCX, PPT for now
